@@ -20,3 +20,10 @@ rows.forEach((row) => {
     const computedWidth = getComputedStyle(square).width;
     row.style.height = computedWidth;
 })
+
+const squares = document.querySelectorAll(".square");
+squares.forEach((square) => {
+    square.addEventListener("mouseenter",(e)=>{
+        e.target.style.backgroundColor = "black";
+    })
+})
