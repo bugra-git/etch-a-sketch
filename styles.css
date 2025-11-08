@@ -1,20 +1,21 @@
 body {
-    display:flex;
     height: 100vh;
-    width: 100vw;
-    margin:0;
+    margin: 0;
+    display: flex;
     justify-content: center;
 }
-#containerGrid {
-    display:flex;
-    flex-direction: column;
-    max-height: 100vh;
-    max-width: 100vh;
-    margin:5vh;
-    flex:auto;
 
+#containerGrid {
+    margin: 5vh;
+    display: flex;
+    flex-direction: column;
+    width: 90vmin;
 }
 
-#containerGrid * {
-    flex:auto;
+#containerGrid .row {
+    flex: auto
+}
+
+.square {
+    aspect-ratio: 1/1;
 }
