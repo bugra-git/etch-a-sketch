@@ -9,7 +9,7 @@ body {
     margin: 5vh;
     display: flex;
     flex-direction: column;
-    width: 90vmin;
+    width: calc(90vh - var(--btn-height));
 }
 
 #containerGrid .row {

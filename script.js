@@ -41,6 +41,12 @@ function makeGrid(num) {
             e.target.style.backgroundColor = "black"; 
         }) 
     }) 
+
+    const btnHeight = getComputedStyle(btn).height;
+    document.documentElement.style.setProperty("--btn-height", btnHeight);
+
+
+    divGrid.style.width = "(87vh-btnheight)"
 } 
 
 makeGrid(16);
