@@ -8,6 +8,7 @@ function makeGrid(num) {
     btn.style.fontWeight = "bold"; 
     btn.style.padding = "1vh"; 
     divGrid.appendChild(btn); 
+
     function btnclick() { 
         entry = +prompt("maximum:100",""); 
         if (Number.isInteger(entry)&&entry>0&&entry<=100) { 
@@ -34,19 +35,24 @@ function makeGrid(num) {
             row.appendChild(square); 
         } 
     }) 
+
+    function randomColor() {
+        const r = Math.floor(Math.random()*256);
+        const g = Math.floor(Math.random()*256);
+        const b = Math.floor(Math.random()*256);
+        const color = `rgb(${r},${g},${b})`;
+        return color;
+    }
     
     const squares = document.querySelectorAll(".square"); 
     squares.forEach((square) => { 
         square.addEventListener("mouseenter",(e)=>{ 
-            e.target.style.backgroundColor = "black"; 
+            e.target.style.backgroundColor = randomColor(); 
         }) 
     }) 
 
     const btnHeight = getComputedStyle(btn).height;
     document.documentElement.style.setProperty("--btn-height", btnHeight);
-
-
-    divGrid.style.width = "(87vh-btnheight)"
 } 
 
 makeGrid(16);
