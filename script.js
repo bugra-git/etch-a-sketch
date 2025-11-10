@@ -34,14 +34,20 @@ function makeGrid(num) {
             row.appendChild(square); 
         } 
     }) 
-    
+     
     const squares = document.querySelectorAll(".square"); 
-    squares.forEach((square) => { 
-        square.addEventListener("mouseenter",(e)=>{ 
-            e.target.style.backgroundColor = "black"; 
+    squares.forEach((square) => 
+        { square.addEventListener("mouseenter",(e)=>{
+            if (!e.target.style.backgroundColor){
+                e.target.style.backgroundColor = "rgba(0, 0, 0, 0.1)"; 
+            } else if (!(e.target.style.backgroundColor==="rgba(0, 0, 0, 1)")) { 
+                arr = e.target.style.backgroundColor.substring(5,(e.target.style.backgroundColor.length-1)).split(","); 
+                arr[3] = (parseFloat(arr[3]) + 0.1)+""; 
+                e.target.style.backgroundColor = `rgba(0,0,0,${arr[3]})`; 
+            } 
         }) 
-    }) 
-
+    })
+    
     const btnHeight = getComputedStyle(btn).height;
     document.documentElement.style.setProperty("--btn-height", btnHeight);
 
